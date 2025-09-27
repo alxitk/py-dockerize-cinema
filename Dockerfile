@@ -1,4 +1,4 @@
-FROM python:3.11.6-alpine3.18
+FROM python:3.11-slim
 LABEL maintainer="leshadrenev@gmail.com"
 
 ENV PYTHONUNBUFFERED=1
@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /cinema
 
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 RUN mkdir -p /files/media
