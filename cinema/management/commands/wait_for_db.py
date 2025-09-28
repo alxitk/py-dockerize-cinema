@@ -1,5 +1,6 @@
 import time
 
+from django.core.management import CommandError
 from django.core.management.base import BaseCommand
 from django.db import connections, OperationalError
 
@@ -10,7 +11,7 @@ class Command(BaseCommand):
         self.stdout.write("Waiting for database...")
         db_conn = None
         counter = 0
-        while not db_conn and counter < 5:
+        while not db_conn and counter < 60:
             try:
                 db_conn = connections["default"]
                 db_conn.cursor()
@@ -24,4 +25,4 @@ class Command(BaseCommand):
             self.stdout.write(self.style.ERROR(
                 "Database unavailable after 5 retries!")
             )
-            raise OperationalError("Database unavailable!")
+            raise CommandError("Database unavailable!")

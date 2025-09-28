@@ -1,43 +1,22 @@
-# Secrets
 .env
-
-# Python
+.env.*
 __pycache__/
 *.pyc
 *.pyo
-*.pyd
-*.db
-*.sqlite3
-
-# Virtual environments
 .venv/
 venv/
 env/
-
-# Build artifacts
+.git/
+.github/
+node_modules/
 build/
 dist/
-*.egg-info/
-
-# Media / static uploads
-media/
+*.egg-info
+.files
 files/media/
-
-# OS / IDE junk
+files/static/
 .DS_Store
-*.swp
-*.swo
-.idea/
-.vscode/
-
-# Node (если где-то фронт)
-node_modules/
-
-# Test caches
 .pytest_cache/
-.coverage
-htmlcov/
-
-# Logs
-*.log
-logs/
+.mypy_cache/
+.pip-wheel-cache/
+docker-compose.override.yml
